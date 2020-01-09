@@ -1,14 +1,14 @@
 package se.ecutb.loffe.model;
 
 public class Person {
-    final int personId;
-    String firstName;
-    String lastName;
+    private final int personId;
+    private String firstName;
+    private String lastName;
 
     public Person(int personId, String firstName, String lastName) {
         this.personId = personId;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        setFirstName(firstName);
+        setLastName(lastName);
     }
 
     public int getPersonId() {

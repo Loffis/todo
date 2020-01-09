@@ -1,40 +1,40 @@
 package se.ecutb.loffe.model;
 
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-import se.ecutb.loffe.model.Person;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 
 public class PersonTest
 {
     Person p;
 
-    @Before
+    @BeforeEach
     public void setup(){
         p = new Person(1, "Kalle", "Karlsson");
     }
 
     @Test
     public void testGetName(){
-        Assert.assertEquals("Kalle", p.getFirstName());
+        Assertions.assertEquals("Kalle", p.getFirstName());
     }
 
     @Test
     public void testGetLastName(){
-        Assert.assertEquals("Karlsson", p.getLastName());
+        Assertions.assertEquals("Karlsson", p.getLastName());
     }
 
     @Test
     public void testGetPersonId(){
-        Assert.assertEquals(1, p.getPersonId());
+        Assertions.assertEquals(1, p.getPersonId());
     }
 
     @Test
     public void testSetFirstAndLastName(){
         p.setFirstName("Karl");
         p.setLastName("Son");
-        Assert.assertEquals("Karl", p.getFirstName());
-        Assert.assertEquals("Son", p.getLastName());
+        Assertions.assertEquals("Karl", p.getFirstName());
+        Assertions.assertEquals("Son", p.getLastName());
     }
 
 }

@@ -1,27 +1,19 @@
 package se.ecutb.loffe.data;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TodoSequencerTest {
 
-    @Test
-    public void testNextTodoId(){
-        TodoSequencer.setTodoId(0);
-        int before = TodoSequencer.getTodoId();
-        TodoSequencer.nextTodoId();
-        int after = TodoSequencer.getTodoId();
-        Assert.assertNotEquals(before, after);
-        Assert.assertEquals(1, after);
-
-    }
-
-    @Test
-    public void testReset(){
-        TodoSequencer.setTodoId(99);
-        Assert.assertEquals(99, TodoSequencer.getTodoId());
+    @BeforeEach
+    void setUp() {
         TodoSequencer.reset();
-        Assert.assertEquals(0, TodoSequencer.getTodoId());
     }
 
+    @Test
+    void todoIdIs1() {
+        assertEquals(1, TodoSequencer.nextTodoId());
+    }
 }

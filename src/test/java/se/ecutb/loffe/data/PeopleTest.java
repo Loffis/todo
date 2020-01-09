@@ -1,14 +1,14 @@
 package se.ecutb.loffe.data;
 
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
 
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class PeopleTest {
 
     People p;
-    @Before
+    @BeforeEach
     public void setup(){
         p = new People();
         p.clear();
@@ -19,9 +19,12 @@ public class PeopleTest {
 
     @Test
     public void testCreatePerson(){
-
-        Assert.assertEquals("Test", p.findById(1).getFirstName());
-        Assert.assertEquals("Testson2", p.findById(2).getLastName());
+        p = new People();
+        p.clear();
+        p.createPerson("Test", "Testson");
+        p.createPerson("Test2", "Testson2");
+        Assertions.assertEquals("Test", p.findById(1).getFirstName());
+        Assertions.assertEquals("Testson2", p.findById(2).getLastName());
     }
 
     @Test
@@ -29,12 +32,12 @@ public class PeopleTest {
         int expected = 2;
         int actual = p.size();
 
-        Assert.assertEquals(expected, actual);
-        Assert.assertNotEquals(expected - 1, actual);
+        Assertions.assertEquals(expected, actual);
+        Assertions.assertNotEquals(expected - 1, actual);
     }
 
     @Test
     public void testFindAll(){
-        Assert.assertEquals(0, p.findAll());
+        Assertions.assertEquals(2, p.findAll().length);
     }
 }

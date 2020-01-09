@@ -1,14 +1,14 @@
 package se.ecutb.loffe.model;
 
 public class Todo {
-    final int todoID;
-    String description;
-    boolean done;
-    Person assignee;
+    private final int todoID;
+    private String description;
+    private boolean done;
+    private Person assignee;
 
     public Todo(int todoID, String description) {
-        this.todoID = todoID;
-        this.description = description;
+        this.todoID = todoID; // false as default.
+        setDescription(description);
     }
 
     public int getTodoID() {

@@ -1,26 +1,20 @@
 package se.ecutb.loffe.data;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PersonSequencerTest {
 
-    @Test
-    public void testNextPersonId(){
-        PersonSequencer.setPersonId(0);
-        int before = PersonSequencer.getPersonId();
-        PersonSequencer.nextPersonId();
-        int after = PersonSequencer.getPersonId();
-        Assert.assertNotEquals(before, after);
-        Assert.assertEquals(1, after);
-
-    }
-
-    @Test
-    public void testReset(){
-        PersonSequencer.setPersonId(99);
-        Assert.assertEquals(99, PersonSequencer.getPersonId());
+    @BeforeEach
+    void setUp() {
         PersonSequencer.reset();
-        Assert.assertEquals(0, PersonSequencer.getPersonId());
     }
+
+    @Test
+    public void nextIdIs1() {
+        assertEquals(1, PersonSequencer.nextPersonId());
+    }
+
 }

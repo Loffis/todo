@@ -1,17 +1,15 @@
 package se.ecutb.loffe.model;
 
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-import se.ecutb.loffe.model.Person;
-import se.ecutb.loffe.model.Todo;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class TodoTest {
 
     Todo t;
     Person p;
 
-    @Before
+    @BeforeEach
     public void setup(){
         t = new Todo(1, "teststring");
         p = new Person(1, "Loffe", "Knutsson");
@@ -23,9 +21,9 @@ public class TodoTest {
         t.setDescription("description");
         t.setDone(false);
 
-        Assert.assertEquals(1, t.getTodoID());
-        Assert.assertEquals(p, t.getAssignee());
-        Assert.assertEquals(false, t.isDone());
-        Assert.assertEquals("description", t.getDescription());
+        Assertions.assertEquals(1, t.getTodoID());
+        Assertions.assertEquals(p, t.getAssignee());
+        Assertions.assertFalse(t.isDone());
+        Assertions.assertEquals("description", t.getDescription());
     }
 }

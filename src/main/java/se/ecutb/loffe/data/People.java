@@ -4,9 +4,13 @@ import se.ecutb.loffe.model.Person;
 
 import java.util.Arrays;
 
-
 public class People {
-    private static Person[] personArray = new Person[0];
+
+    private static Person[] personArray;
+
+    static {
+        personArray = new Person[0];
+    }
 
     public int size(){
         return personArray.length;
@@ -26,7 +30,8 @@ public class People {
 
     public Person createPerson(String firstName, String lastName){
         Person newPerson = new Person(PersonSequencer.nextPersonId(), firstName, lastName);
-        personArray = expandArray(personArray, newPerson);
+        personArray = Arrays.copyOf(personArray, personArray.length + 1);
+        personArray[personArray.length - 1] = newPerson;
         return newPerson;
     }
 
@@ -34,9 +39,4 @@ public class People {
         personArray = new Person[0];
     }
 
-    private Person[] expandArray(Person[] sourceArray, Person newPerson){
-        Person[] newArray = Arrays.copyOf(sourceArray, sourceArray.length + 1);
-        newArray[newArray.length - 1] = newPerson;
-        return newArray;
-    }
 }
